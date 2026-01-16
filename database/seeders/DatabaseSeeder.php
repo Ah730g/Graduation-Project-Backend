@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Ahmed Ali',
                 'password' => Hash::make('password123'),
-                'role' => 'user',
+                'role' => 'tenant',
                 'status' => 'active',
                 'avatar' => null,
             ]
@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Sara Mohamed',
                 'password' => Hash::make('password123'),
-                'role' => 'user',
+                'role' => 'tenant',
                 'status' => 'active',
                 'avatar' => null,
             ]
@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Mohamed Hassan',
                 'password' => Hash::make('password123'),
-                'role' => 'user',
+                'role' => 'owner',
                 'status' => 'active',
                 'avatar' => null,
             ]
@@ -228,46 +228,46 @@ class DatabaseSeeder extends Seeder
             'terms' => '12 months contract. Security deposit required. Utilities separate.',
         ]);
 
-        // Create Reviews
-        Review::create([
-            'user_id' => $user2->id,
-            'post_id' => $post1->id,
-            'rating' => 5,
-            'comment' => 'Great apartment! Very clean and well-maintained. Highly recommended!',
-            'status' => 'active',
-        ]);
+        // // Create Reviews
+        // Review::create([
+        //     'user_id' => $user2->id,
+        //     'post_id' => $post1->id,
+        //     'rating' => 5,
+        //     'comment' => 'Great apartment! Very clean and well-maintained. Highly recommended!',
+        //     'status' => 'active',
+        // ]);
 
-        Review::create([
-            'user_id' => $user3->id,
-            'post_id' => $post2->id,
-            'rating' => 4,
-            'comment' => 'Beautiful villa, spacious and comfortable. The garden is amazing!',
-            'status' => 'active',
-        ]);
+        // Review::create([
+        //     'user_id' => $user3->id,
+        //     'post_id' => $post2->id,
+        //     'rating' => 4,
+        //     'comment' => 'Beautiful villa, spacious and comfortable. The garden is amazing!',
+        //     'status' => 'active',
+        // ]);
 
-        Review::create([
-            'user_id' => $user1->id,
-            'post_id' => $post4->id,
-            'rating' => 5,
-            'comment' => 'Perfect office space for our startup. Great location and facilities.',
-            'status' => 'active',
-        ]);
+        // Review::create([
+        //     'user_id' => $user1->id,
+        //     'post_id' => $post4->id,
+        //     'rating' => 5,
+        //     'comment' => 'Perfect office space for our startup. Great location and facilities.',
+        //     'status' => 'active',
+        // ]);
 
-        // Create Saved Posts
-        SavedPost::create([
-            'user_id' => $user2->id,
-            'post_id' => $post3->id,
-        ]);
+        // // Create Saved Posts
+        // SavedPost::create([
+        //     'user_id' => $user2->id,
+        //     'post_id' => $post3->id,
+        // ]);
 
-        SavedPost::create([
-            'user_id' => $user3->id,
-            'post_id' => $post1->id,
-        ]);
+        // SavedPost::create([
+        //     'user_id' => $user3->id,
+        //     'post_id' => $post1->id,
+        // ]);
 
-        SavedPost::create([
-            'user_id' => $user1->id,
-            'post_id' => $post2->id,
-        ]);
+        // SavedPost::create([
+        //     'user_id' => $user1->id,
+        //     'post_id' => $post2->id,
+        // ]);
 
         $this->command->info('Database seeded successfully!');
         $this->command->info('Admin credentials: admin@gmail.com / amir777858@');
