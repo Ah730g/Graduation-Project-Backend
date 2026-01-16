@@ -33,5 +33,9 @@ RUN chown -R www-data:www-data /var/www \
 # Expose port
 EXPOSE 10000
 
+# بعد تثبيت dependencies
+RUN php artisan migrate --force
+RUN php artisan db:seed --force
+
 # Start Laravel
 CMD php artisan serve --host=0.0.0.0 --port=10000
