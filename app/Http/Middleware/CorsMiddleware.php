@@ -9,22 +9,22 @@ class CorsMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        $allowedOrigin = 'https://homady.vercel.app'; // ضع دومين فرونتند الصحيح
+        $allowedOrigin = 'https://homady.vercel.app';
 
         $headers = [
             'Access-Control-Allow-Origin' => $allowedOrigin,
-            'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS, PUT, DELETE',
+            'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS',
             'Access-Control-Allow-Headers' => 'Content-Type, X-Requested-With, Authorization',
-            'Access-Control-Allow-Credentials' => 'true'
+            'Access-Control-Allow-Credentials' => 'true',
         ];
 
         // Preflight request
-        if ($request->isMethod('OPTIONS')) {
+        if ($request->getMethod() === 'OPTIONS') {
             return response()->json('OK', 200, $headers);
         }
 
-        // طلبات عادية
         $response = $next($request);
+
         foreach ($headers as $key => $value) {
             $response->headers->set($key, $value);
         }
